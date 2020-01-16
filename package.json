@@ -1,0 +1,26 @@
+{
+  "name": "crawler-nodejs",
+  "version": "1.0.0",
+  "description": "Crawler to check meta tags",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denisegiubilei/crawler-nodejs.git"
+  },
+  "keywords": [
+    "nodejs",
+    "crawler"
+  ],
+  "author": "denise giubilei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/denisegiubilei/crawler-nodejs/issues"
+  },
+  "homepage": "https://github.com/denisegiubilei/crawler-nodejs#readme",
+  "dependencies": {
+    "crawler": "^1.2.1"
+  }
+}
