@@ -4,7 +4,8 @@
   "description": "Crawler to check meta tags",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/denisegiubilei/crawler-nodejs#readme",
   "dependencies": {
-    "crawler": "^1.2.1"
+    "crawler": "^1.2.1",
+    "moment": "^2.24.0"
   }
 }
