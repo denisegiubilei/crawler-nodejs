@@ -4,10 +4,10 @@ const moment = require('moment')
 
 const initTime = moment().format('YYYY-MM-DD-hh_mm')
 
-const inputJson = './files/urls.json'
+const inputFile = './files/input-urls.json'
 const outputFile = `./files/output-${initTime}.json`
 
-const crawlerLinx = new Crawler({
+const crawler = new Crawler({
   maxConnections: 20,
   callback: (err, res, done) => {
     if (err) {
@@ -17,33 +17,32 @@ const crawlerLinx = new Crawler({
       const realPath = res.request.uri.path
       const realMeta = $(`meta[name='${res.options.metaName}']`).attr('content')
 
-      let match = res.options.expected.includes(realMeta)
+      const match = res.options.expected.includes(realMeta)
       if(!match) {
         console.log(res.options.uri + ": " + realMeta)
       }
-      let result = {
+      
+      writeResult({
         realPath,
         realMeta,
         match
-      }
-      writeResult(result)
+      })
     }
     done()
   }
 })
 
 const writeResult = data => {
-  let content = JSON.stringify(data) + ','
-  fs.appendFile(outputFile, content, function (err) {
-    if (err)
-      console.log(err)
+  let content = JSON.stringify(data) + '\n'
+  fs.appendFile(outputFile, content, (err) => {
+    err && console.log(err)
   })
 }
 
 (init = () => {
-  const urls = JSON.parse(fs.readFileSync(inputJson, 'utf8'))
+  const urls = JSON.parse(fs.readFileSync(inputFile, 'utf8'))
   urls.forEach(uri => {
-    crawlerLinx.queue({
+    crawler.queue({
       uri: uri,
       metaName: 'robots',
       expected: ['index', 'index,follow']
