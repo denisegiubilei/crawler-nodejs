@@ -23,6 +23,6 @@
   "homepage": "https://github.com/denisegiubilei/crawler-nodejs#readme",
   "dependencies": {
     "crawler": "^1.2.1",
-    "moment": "^2.24.0"
+    "moment": "^2.29.4"
   }
 }
